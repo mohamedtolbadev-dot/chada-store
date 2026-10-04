@@ -1,0 +1,23 @@
+  html{scroll-behavior:smooth;scroll-padding-top:12px}
+  body{font-family:'Cairo','Tajawal',sans-serif;background:#fdf8f7;color:#111;overflow-x:hidden}
+  .olive{background:#4a4d3e;color:#fff;border:2px solid #2f3127;border-radius:22px;box-shadow:0 4px 0 #2f3127}
+  .btn-green{background:#3fae3f}
+  .btn-brown{background:#7a3f33}
+  .slot{background:#e8dccf;overflow:hidden}
+  .slot img{width:100%;height:100%;object-fit:cover;display:block}
+  .pill input,.sw input{position:absolute;opacity:0;pointer-events:none}
+  .pill span{display:block;border:1.5px solid #111;border-radius:999px;padding:6px 18px;font-weight:700;background:#fff}
+  .pill input:checked+span{border-color:#2e8b2e;box-shadow:0 0 0 2px #3fae3f;background:#eaf7ea}
+  .sw span{display:block;width:44px;height:44px;border-radius:14px;border:2px solid transparent}
+  .sw input:checked+span{border-color:#111;box-shadow:0 0 0 2px #fff inset}
+  .fld{border:1.5px solid #111;border-radius:16px;background:#fff;position:relative;padding:14px 12px 8px}
+  .fld label{position:absolute;top:-13px;right:14px;background:#efefef;padding:0 8px;font-weight:700;font-size:14px}
+  .fld input,.fld select{width:100%;outline:none;background:transparent;font-size:16px;font-weight:500}
+  .offer{border:2px solid #111;border-radius:14px;background:#fff;padding:6px 2px}
+  .offer.on{border-color:#2e8b2e;box-shadow:0 0 0 2px #3fae3f;background:#eaf7ea}
+  .fld.err{border-color:#d4151b}
+  .err-msg{color:#d4151b;font-size:12px;font-weight:700;display:none}
+  .fld.err+.err-msg{display:block}
+  #sticky{transition:transform .25s}
+  #sticky.hide{transform:translateY(130%)}
+  :focus-visible{outline:3px solid #f2c21b;outline-offset:2px}
