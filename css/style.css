@@ -28,6 +28,9 @@
   .slot img{width:100%;height:100%;object-fit:cover;display:block}
   #sticky{transition:transform .25s}
   #sticky.hide{transform:translateY(130%)}
+  .whatsapp-float{position:fixed;right:12px;bottom:calc(6.25rem + env(safe-area-inset-bottom,0px));z-index:60;display:inline-flex;align-items:center;gap:8px;max-width:calc(100vw - 24px);padding:10px 12px;border-radius:999px;background:var(--brand);color:#fff;font-size:14px;font-weight:900;line-height:1.25;text-decoration:none;white-space:nowrap;box-shadow:0 3px 12px #2e1b1466;transition:background .15s,transform .15s}
+  .whatsapp-float:hover{background:var(--brand-hover);transform:translateY(-2px)}
+  .whatsapp-float svg{width:24px;height:24px;flex:none}
 
   /* ---------- order form ---------- */
   .pill input,.sw input{position:absolute;opacity:0;pointer-events:none}
@@ -69,3 +72,9 @@
   @media (max-width:340px){.vm{gap:6px;padding:8px 10px}.vm-name{display:none}}
 
   @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.vm-play,#sticky{transition:none}}
+    /* ---------- floating WhatsApp button ---------- */
+  .wa-float{position:fixed;right:12px;bottom:calc(5.5rem + env(safe-area-inset-bottom,0px));z-index:40;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;background:#25D366;color:#fff;border:2px solid #fff;transition:bottom .25s,transform .15s}
+  .wa-float:active{transform:scale(.94)}
+  .wa-float svg{width:30px;height:30px}
+  #sticky.hide ~ .wa-float{bottom:calc(1rem + env(safe-area-inset-bottom,0px))}
+  @media (prefers-reduced-motion:reduce){.wa-float{transition:none}}
