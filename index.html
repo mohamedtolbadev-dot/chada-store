@@ -32,17 +32,11 @@
       <svg class="h-14 w-14 shrink-0 -scale-x-100 text-red-600" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8C6 36 22 44 54 44M38 28l16 16-18 12"/></svg>
     </div>
 
-    <!-- editorial composition: replace assets/product-N.webp -->
-    <div class="relative mx-auto mt-3 w-full" style="aspect-ratio:720/1160">
-      <div class="slot absolute left-[1%] top-[0%] h-[47.7%] w-[48%] rounded-[50%] border border-red-900">
-        <img src="assets/product-3.webp" alt="سورفيت أبيض" width="360" height="450" onerror="this.remove()">
-      </div>
-      <div class="slot absolute right-[1%] top-[3%] h-[55.2%] w-[50%] rounded-xl">
-        <img src="assets/product-1.webp" alt="سورفيت أخضر" width="320" height="670" onerror="this.remove()">
-      </div>
-      <div class="slot absolute left-[20%] top-[53%] z-10 h-[46.3%] w-[42%] rounded-3xl border-4 border-[#fdf8f7] outline outline-1 outline-red-900">
-        <img src="assets/product-2.webp" alt="سورفيت بني" width="290" height="380" loading="lazy" onerror="this.remove()">
-      </div>
+    <div class="hero-gallery mt-3 grid grid-cols-2 gap-3">
+      <div class="slot gallery-frame gallery-frame--olive aspect-[9/16]"><img src="assets/product-1.webp" alt="سورفيت بني" width="360" height="640" fetchpriority="high"></div>
+      <div class="slot gallery-frame gallery-frame--double aspect-[9/16]"><img src="assets/product-2.webp" alt="سورفيت أبيض" width="360" height="640"></div>
+      <div class="slot gallery-frame gallery-frame--edge aspect-[9/16]"><img src="assets/product-3.webp" alt="سورفيت أسود" width="360" height="640"></div>
+      <div class="slot gallery-frame gallery-frame--sand aspect-[9/16]"><img src="assets/product-4.webp" alt="سورفيت أخضر" width="360" height="640"></div>
     </div>
   </section>
 

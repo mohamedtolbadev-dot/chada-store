@@ -5,6 +5,12 @@
   .btn-brown{background:#7a3f33}
   .slot{background:#e8dccf;overflow:hidden}
   .slot img{width:100%;height:100%;object-fit:cover;display:block}
+  .hero-gallery .gallery-frame{box-sizing:border-box;background:#fdf8f7;overflow:hidden;transition:box-shadow .2s ease,transform .2s ease}
+  .hero-gallery .gallery-frame img{border-radius:inherit}
+  .hero-gallery .gallery-frame--olive{border:1px solid #59604b;border-radius:50% / 18%;box-shadow:0 4px 10px rgba(47,49,39,.12)}
+  .hero-gallery .gallery-frame--double{border:1px solid #8b6654;border-radius:22px 10px 22px 22px;box-shadow:0 0 0 3px #fdf8f7,0 0 0 4px rgba(139,102,84,.4),0 5px 12px rgba(47,49,39,.1)}
+  .hero-gallery .gallery-frame--edge{border:1px solid #59604b;border-right-width:2px;border-bottom-width:3px;border-radius:10px 22px 22px 22px;box-shadow:0 5px 11px rgba(47,49,39,.1)}
+  .hero-gallery .gallery-frame--sand{border:1px solid #b48d62;border-radius:50% / 18%;box-shadow:inset 0 0 0 2px rgba(253,248,247,.85),0 5px 12px rgba(47,49,39,.1)}
   .pill input,.sw input{position:absolute;opacity:0;pointer-events:none}
   .pill span{display:block;border:1.5px solid #111;border-radius:999px;padding:6px 18px;font-weight:700;background:#fff}
   .pill input:checked+span{border-color:#2e8b2e;box-shadow:0 0 0 2px #3fae3f;background:#eaf7ea}
