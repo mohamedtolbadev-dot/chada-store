@@ -10,10 +10,10 @@
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
   tailwind.config = { theme: { extend: { colors: {
-    brand: { DEFAULT: '#8f6a58', dark: '#2e1b14', mid: '#b08c7c', sand: '#eed4c3', cream: '#fbf8f3' }
+    brand: { DEFAULT: '#6E1423', dark: '#2e1b14', mid: '#b08c7c', sand: '#eed4c3', cream: '#fbf8f3' }
   } } } }
 </script>
-<meta name="theme-color" content="#8f6a58">
+<meta name="theme-color" content="#6E1423">
 <link rel="icon" href="assets/logo/logo-chada-store.jpeg">
 <script src="https://unpkg.com/lucide@latest"></script>
 <link rel="stylesheet" href="css/style.css">
@@ -91,9 +91,9 @@
 
   <!-- 7. PRICE -->
   <section class="mt-4 flex items-center justify-between gap-2 px-1" aria-label="الثمن">
-    <span class="rounded-full bg-brand-dark px-3 py-1 text-sm font-bold text-white">وفّر 150 د.م</span>
-    <span class="text-3xl font-bold text-gray-500 line-through decoration-2">399 د.م</span>
     <span class="text-5xl font-black text-brand">249 د.م</span>
+    <span class="text-3xl font-bold text-gray-500 line-through decoration-2">399 د.م</span>
+    <span class="rounded-full bg-brand-dark px-3 py-1 text-base font-bold text-white">وفّر 150 د.م</span>
   </section>
   <div id="offers" class="mt-3 grid grid-cols-3 gap-2 text-center font-black">
     <button type="button" data-q="1" class="offer"><span class="block text-lg">قطعة وحدة</span><span class="block text-2xl text-brand">249 د.م</span></button>
@@ -132,9 +132,10 @@
         <div><div class="fld"><label for="name">الاسم الكامل</label><input id="name" name="name" type="text" autocomplete="name" placeholder="أدخل الاسم الكامل هنا"></div><p class="err-msg">كتب الاسم الكامل ديالك</p></div>
         <div><div class="fld"><label for="phone">رقم الهاتف</label><input id="phone" name="phone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="06XXXXXXXX" maxlength="10"></div><p class="err-msg">رقم الهاتف خاص يبدا بـ 05 / 06 / 07 وفيه 10 أرقام</p></div>
         <div><div class="fld"><label for="city">المدينة</label>
-          <select id="city" name="city"><option value="">اختر المدينة</option>
-            <option>الدار البيضاء</option><option>الرباط</option><option>مراكش</option><option>فاس</option><option>طنجة</option><option>أكادير</option><option>مكناس</option><option>وجدة</option><option>القنيطرة</option><option>تطوان</option><option>تمارة</option><option>سلا</option><option>المحمدية</option><option>الجديدة</option><option>بني ملال</option><option>تازة</option><option>الناظور</option><option>سطات</option><option>خريبكة</option><option>العيون</option><option>مدينة أخرى</option>
-          </select></div><p class="err-msg">اختر المدينة</p></div>
+          <input id="city" name="city" type="text" list="city-suggestions" autocomplete="address-level2" placeholder="أدخل اسم المدينة">
+          <datalist id="city-suggestions">
+            <option value="الدار البيضاء"></option><option value="الرباط"></option><option value="مراكش"></option><option value="فاس"></option><option value="طنجة"></option><option value="أكادير"></option><option value="مكناس"></option><option value="وجدة"></option><option value="القنيطرة"></option><option value="تطوان"></option><option value="تمارة"></option><option value="سلا"></option><option value="المحمدية"></option><option value="الجديدة"></option><option value="بني ملال"></option><option value="تازة"></option><option value="الناظور"></option><option value="سطات"></option><option value="خريبكة"></option><option value="العيون"></option><option value="مدينة أخرى"></option>
+          </datalist></div><p class="err-msg">اختر المدينة</p></div>
         <div><div class="fld"><label for="address">العنوان</label><input id="address" name="address" type="text" autocomplete="street-address" placeholder="الحي، الزنقة، رقم الدار"></div><p class="err-msg">كتب العنوان باش يوصلك التوصيل</p></div>
       </div>
 

@@ -1,20 +1,20 @@
   html{scroll-behavior:smooth;scroll-padding-top:12px}
   body{font-family:'Cairo','Tajawal',sans-serif;background:#fbf8f3;color:#2e1b14;overflow-x:hidden}
   .olive{background:#2e1b14;color:#fff;border:2px solid #1a0f0a;border-radius:22px;box-shadow:0 4px 0 #1a0f0a}
-  .btn-green{background:#8f6a58}
+  .btn-green{background:#6E1423}
   .btn-brown{background:#2e1b14}
   .slot{background:#eed4c3;overflow:hidden}
   .slot img{width:100%;height:100%;object-fit:cover;display:block}
   .pill input,.sw input{position:absolute;opacity:0;pointer-events:none}
   .pill span{display:block;border:1.5px solid #2e1b14;border-radius:999px;padding:6px 18px;font-weight:700;background:#fff}
-  .pill input:checked+span{border-color:#8f6a58;box-shadow:0 0 0 2px #8f6a58;background:#f6e9e0}
+  .pill input:checked+span{border-color:#6E1423;box-shadow:0 0 0 2px #6E1423;background:#f6e9e0}
   .sw span{display:block;width:44px;height:44px;border-radius:14px;border:2px solid transparent}
   .sw input:checked+span{border-color:#2e1b14;box-shadow:0 0 0 2px #fff inset}
   .fld{border:1.5px solid #2e1b14;border-radius:16px;background:#fff;position:relative;padding:14px 12px 8px}
   .fld label{position:absolute;top:-13px;right:14px;background:#f1e4da;padding:0 8px;font-weight:700;font-size:14px}
   .fld input,.fld select{width:100%;outline:none;background:transparent;font-size:16px;font-weight:500}
   .offer{border:2px solid #2e1b14;border-radius:14px;background:#fff;padding:6px 2px}
-  .offer.on{border-color:#8f6a58;box-shadow:0 0 0 2px #8f6a58;background:#f6e9e0}
+  .offer.on{border-color:#6E1423;box-shadow:0 0 0 2px #6E1423;background:#f6e9e0}
   .fld.err{border-color:#c0392b}
   .err-msg{color:#c0392b;font-size:12px;font-weight:700;display:none}
   .fld.err+.err-msg{display:block}
