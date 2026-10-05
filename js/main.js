@@ -107,6 +107,10 @@
 
   const form = $('#orderForm');
   const order = $('#order');
+  const submitButton = $('#submitOrder');
+  const submitStatus = $('#submitStatus');
+  const SHEETS_ENDPOINT = 'https://script.google.com/macros/s/AKfycbwS5EhTeGir5XZ13szsFq48G_nJ99VkTg9w5vpN_lfjSx1aZOFF1GXWS7ufr5S2x1pVfA/exec';
+  let isSubmitting = false;
 
   // all CTAs scroll to the order form
   document.querySelectorAll('a.cta').forEach(a => a.addEventListener('click', e => {
@@ -156,8 +160,10 @@
   const mark = (k, ok) => $('#' + k).closest('.fld').classList.toggle('err', !ok);
   Object.keys(rules).forEach(k => $('#' + k).addEventListener('input', e => mark(k, rules[k](e.target.value))));
 
-  form.addEventListener('submit', e => {
+  form.addEventListener('submit', async e => {
     e.preventDefault();
+    if (isSubmitting) return;
+
     let first = null;
     for (const k in rules) {
       const ok = rules[k](form[k].value);
@@ -165,9 +171,53 @@
       if (!ok && !first) first = form[k];
     }
     if (first) { first.scrollIntoView({ behavior: 'smooth', block: 'center' }); first.focus({ preventScroll: true }); return; }
+
     const d = new FormData(form);
     let items = [`${d.get('color')} (${d.get('size')})`];
-    for (let i = 2; i <= qty; i++) items.push(`${d.get('color' + i)} (${d.get('size' + i)})`);
+    const additionalPieces = [];
+    for (let i = 2; i <= qty; i++) {
+      const piece = `${d.get('color' + i)} (${d.get('size' + i)})`;
+      items.push(piece);
+      additionalPieces.push(`القطعة ${i}: ${piece}`);
+    }
+
+    const orderData = {
+      name: String(d.get('name')).trim(),
+      phone: String(d.get('phone')).replace(/\s/g, ''),
+      city: String(d.get('city')).trim(),
+      address: String(d.get('address')).trim(),
+      color: String(d.get('color')),
+      size: String(d.get('size')),
+      quantity: qty,
+      additionalPieces: additionalPieces.join(' | ')
+    };
+
+    isSubmitting = true;
+    submitButton.disabled = true;
+    submitButton.setAttribute('aria-busy', 'true');
+    submitStatus.classList.remove('hidden', 'text-red-700');
+    submitStatus.classList.add('text-brand-dark');
+    submitStatus.textContent = 'جاري إرسال الطلب...';
+
+    try {
+      await fetch(SHEETS_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: JSON.stringify(orderData)
+      });
+    } catch (error) {
+      isSubmitting = false;
+      submitButton.disabled = false;
+      submitButton.removeAttribute('aria-busy');
+      submitStatus.classList.remove('text-brand-dark');
+      submitStatus.classList.add('text-red-700');
+      submitStatus.textContent = 'تعذر إرسال الطلب. تحقق من اتصال الإنترنت، وراجع الشيت قبل إعادة المحاولة.';
+      console.error('Order submission failed:', error);
+      return;
+    }
+
+    submitStatus.textContent = 'تم إرسال الطلب. راجع الشيت للتأكد من تسجيله.';
     $('#successMsg').textContent = `${d.get('name')} - ${items.join(' + ')} - المجموع ${PRICES[qty]} د.م`;
     form.classList.add('hidden');
     $('#success').classList.remove('hidden');
