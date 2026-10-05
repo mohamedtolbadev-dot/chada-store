@@ -1,4 +1,4 @@
-  lucide.createIcons();
+lucide.createIcons();
   const $ = (s, r = document) => r.querySelector(s);
   // ---------- voice reviews (WhatsApp style) ----------
   const fmtTime = s => Number.isFinite(s) && s >= 0 ? `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, '0')}` : '0:00';
@@ -144,6 +144,14 @@
   document.querySelectorAll('.offer').forEach(b => b.onclick = () => setQty(+b.dataset.q));
   setQty(1);
 
+  // Meta Pixel: InitiateCheckout (once, when the customer starts filling the form)
+  let checkoutFired = false;
+  form.addEventListener('focusin', () => {
+    if (checkoutFired || !window.fbq) return;
+    checkoutFired = true;
+    fbq('track', 'InitiateCheckout', { value: PRICES[qty], currency: 'MAD', num_items: qty });
+  });
+
   // color / size labels
   form.addEventListener('change', e => {
     if (e.target.name === 'color') $('#colorName').textContent = e.target.value;
@@ -218,6 +226,16 @@
     }
 
     submitStatus.textContent = 'تم إرسال الطلب. راجع الشيت للتأكد من تسجيله.';
+
+    // Meta Pixel: Purchase
+    if (window.fbq) {
+      fbq('track', 'Purchase', {
+        value: PRICES[qty],
+        currency: 'MAD',
+        num_items: qty,
+        content_type: 'product'
+      }, { eventID: 'ord_' + Date.now() });
+    }
     $('#successMsg').textContent = `${d.get('name')} - ${items.join(' + ')} - المجموع ${PRICES[qty]} د.م`;
     form.classList.add('hidden');
     $('#success').classList.remove('hidden');
